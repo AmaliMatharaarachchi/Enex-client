@@ -66,7 +66,19 @@
                                 class="md md-poll"></i><span>Individual Customer </span> </a>
                         <ul class="list-unstyled">
                             <li><a href="#/addIndividualCustomer">Add</a></li>
-                            <!--<li><a href="#/addIndividualCustomer">View All</a></li>-->
+                            <li><a href="#/viewAllIndividualCustomers">View All</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul>
+                    <li class="has_sub">
+                        <a  class="waves-effect waves-primary"><i
+                                class="md md-poll"></i><span>Product</span> </a>
+                        <ul class="list-unstyled">
+                            <li><a href="#/addProduct">Add</a></li>
+                            <li><a href="#/deleteProduct">Delete</a></li>
+                            <li><a href="#/viewAllProducts">View All</a></li>
                         </ul>
                     </li>
 
@@ -97,8 +109,10 @@
 <script src="app/urls.js"></script>
 
 <script src="app/controller/individual_customer_controller.js"></script>
-
 <script src="app/service/individual_customer_service.js"></script>
+
+<script src="app/controller/product_controller.js"></script>
+<script src="app/service/product_service.js"></script>
 
 
 <script>

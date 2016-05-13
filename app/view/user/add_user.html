@@ -1,0 +1,58 @@
+<div ng-controller="UserController">
+    <div>
+        <div style="padding-right: 100px" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-2 control-label">User Id</label>
+                <div class="col-md-10">
+                    <input ng-model="user.userId" type="text" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">User Name</label>
+                <div class="col-md-10">
+                    <input ng-model="user.userName" type="text" class="form-control" placeholder="User Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Region</label>
+                <div class="col-md-10">
+                    <input ng-model="user.password" type="password" class="form-control" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Contact No</label>
+                <div class="col-md-10">
+                    <!--<input ng-model="user.privilege" type="text" class="form-control" placeholder="Qty On Hand">-->
+                    <select>
+                        <option value="Admin">Administrator</option>
+                        <option value="Admin & Manager">Admin & Manager</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Clerk">Clerk</option>
+                        <option value="Factory Worker">Factory Worker</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Name</label>
+                <div class="col-md-10">
+                    <input ng-model="user.name" type="text" class="form-control" placeholder="Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Name</label>
+                <div class="col-md-10">
+                    <input ng-model="user.address" type="text" class="form-control" placeholder="Address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Name</label>
+                <div class="col-md-10">
+                    <input ng-model="user.contactNo" type="text" class="form-control" placeholder="Contact No">
+                </div>
+            </div>
+            <div  style="width: 100%">
+                <button style="float: right"  ng-click="saveProduct()" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

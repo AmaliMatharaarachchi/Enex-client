@@ -20,6 +20,16 @@ module.factory('IndividualCustomerService', function ($http, $rootScope) {
             }).then(function (response) {
                 return response.data;
             });
+        },
+        getAllCustomers:function (data) {
+            return $http({
+                method: "GET",
+                headers: headers,
+                data: data,
+                url: host2.individualCustomer + "/getAll"
+            }).then(function (response) {
+                return response.data;
+            });
         }
     }
         return IndividualCustomerService;

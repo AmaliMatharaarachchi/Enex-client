@@ -9,12 +9,18 @@ function IndividualCustomerController($scope, IndividualCustomerService) {
     $scope.saveCustomer = function () {
         IndividualCustomerService.saveCustomer($scope.customer).then(function (data) {
             if (data.text == "200") {
-                console.log("Save Successfully..")
+                Window.alert("Save Successfully..");
             } else {
-                console.log("Saving Fail..")
+                Window.alert("Saving Fail..");
             }
         });
     };
 
+    $scope.getAllCustomers = function () {
+        IndividualCustomerService.getAllCustomers().then(function (data) {
+            console.log(data);
+            $allCustomers = data;
+        });
+    };
 
 };
