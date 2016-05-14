@@ -1,0 +1,58 @@
+
+    <div id="page-wrapper" ng-controller="DeliveryOrder" >
+
+        <div class="graphs">
+            <div class="xs">
+                <div class="panel panel-success">
+                    <div class="panel-heading" >
+                        <h3 class="panel-title"><strong>Delivery Order</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="horizontal-form">
+                                <form class="form-horizontal">
+                                    <div ng-init="getAllCustomers()" class="" >
+                                        <div class="form-group">
+                                            <table class="table table-striped" id="datatable-editable">
+                                                <thead>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Quantity Supplied</th>
+                                                    <th>Price</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr ng-repeat="customer in allCustomers" class="gradeX" onClick="HighLightTR(this,'#c9cc99','cc3333')";>
+                                                    <td>{{customer.custId}}</td>
+                                                    <td>{{customer.name}}</td>
+                                                    <td>{{customer.address}}</td>
+                                                    <td>{{customer.region}}</td>
+                                                    <td>{{customer.creditPeriod}}</td>
+                                                    <td>{{customer.contactNo}}</td>
+                                                    <td>{{customer.registeredDate}}</td>
+                                                    <td>{{customer.salesRepresentative}}</td>
+                                                    <td>
+                                                        <button ng-click="updateCustomer(data)" class="btn btn-primary btn-xs">Edit
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</head>
+<body>
+
+</body>
+</html>
