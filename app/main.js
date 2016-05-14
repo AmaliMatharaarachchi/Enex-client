@@ -24,6 +24,9 @@ module.config(function ($routeProvider) {
         .when('/updateProduct', {
             templateUrl: 'app/view/product/update_product.html'
         })
+        .when('/viewOrderDetails', {
+            templateUrl: 'app/view/product/view_order_details.html'
+        })
         .when('/addUser', {
             templateUrl: 'app/view/user/add_user.html'
         });
