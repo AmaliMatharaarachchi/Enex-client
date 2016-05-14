@@ -9,16 +9,23 @@
                     </div>
                     <div class="panel-body">
                         <div class="tab-content">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">User Name</label>
+                                <div class="col-md-10">
+                                    <input ng-model="order.customerName" type="text" class="form-control" placeholder="customer name">
+                                </div>
+                            </div>
                             <div class="tab-pane active" id="horizontal-form">
                                 <form class="form-horizontal">
-                                    <div ng-init="getAllCustomers()" class="" >
+
                                         <div class="form-group">
                                             <table class="table table-striped" id="datatable-editable">
                                                 <thead>
                                                 <tr>
                                                     <th>description</th>
                                                     <th>quantity Supplied</th>
-                                                    <th>price</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Price</th>
 
                                                 </tr>
                                                 </thead>
@@ -26,14 +33,13 @@
                                                 <tr ng-repeat="product in allProducts" class="gradeX" onClick="HighLightTR(this,'#c9cc99','cc3333')";>
                                                     <td>{{order.description}}</td>
                                                     <td>{{order.quantitySupplied}}</td>
+                                                    <td>{{order.unitPrice}}</td>
                                                     <td>{{order.price}}</td>
-
                                                 </tr>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-
+                                    
                                 </form>
 
                                 <div><button ng-click="update(data)" class="btn btn-primary btn-xs">create
