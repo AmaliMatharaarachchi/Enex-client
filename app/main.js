@@ -35,6 +35,15 @@ module.config(function ($routeProvider) {
         })
         .when('/region', {
             templateUrl: 'app/view/region/Region.html'
+        })
+        .when('/addRegion', {
+            templateUrl: 'app/view/region/add_region.html'
+        })
+        .when('/deleteRegion', {
+            templateUrl: 'app/view/region/delete_region.html'
+        })
+        .when('/viewAllRegions', {
+            templateUrl: 'app/view/region/view_all_regions.html'
         });
 });
 
