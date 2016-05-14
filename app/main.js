@@ -10,7 +10,7 @@ module.config(function ($routeProvider) {
             templateUrl: 'app/view/individual_customer/view_all_individual_customers.html'
         })
         .when('/addIndividualCustomer', {
-            templateUrl: 'app/view/individual_customer/add_individual_customer.html'
+            templateUrl: 'app/view/individual_customer/add_customer.html'
         })
         .when('/addProduct', {
             templateUrl: 'app/view/product/add_product.html'
@@ -21,8 +21,11 @@ module.config(function ($routeProvider) {
         .when('/viewAllProducts', {
             templateUrl: 'app/view/product/view_all_products.html'
         })
-        .when('/update', {
-            templateUrl: 'app/view/product/view_all_products.html'
+        .when('/updateProduct', {
+            templateUrl: 'app/view/product/update_product.html'
+        })
+        .when('/addUser', {
+            templateUrl: 'app/view/user/add_user.html'
         });
 });
 

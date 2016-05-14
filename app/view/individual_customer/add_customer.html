@@ -1,0 +1,128 @@
+<div id="page-wrapper" ng-controller="IndividualCustomerController">
+    <div class="graphs">
+            <div class="xs">
+                <div class="panel panel-success">
+                    <div class="panel-heading" >
+                        <h3 class="panel-title"><strong>Add new customer</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="horizontal-form">
+                                <div class="form-horizontal">
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"></label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Name</label>
+                                        <div class="col-md-8">
+                                            <input data-toggle="tooltip" title="Customer Name" ng-model="customer.name" type="text" class="form-control" placeholder="Customer Name" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Adderss</label>
+                                        <div class="col-md-8">
+                                            <input data-toggle="tooltip" title="Customer Address" ng-model="customer.address" type="text" class="form-control" placeholder="Address" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><b>Region</b></label>
+
+                                        <div class="col-sm-8"><select data-toggle="tooltip" title="Customer Region"
+                                                                      class="form-control" ng-model="customer.region"
+                                                                      ng-click="getRegions()"
+                                                                      id="region">
+                                            <option value="">Select Region</option>
+                                            <option
+                                                    ng-repeat="data in allRegion" value="{{data.regionId}}">
+                                                {{data.name}} - {{data.town}}
+                                            </option>
+                                        </select></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Contact No</label>
+                                        <div class="col-md-8">
+                                            <input data-toggle="tooltip" title="Customer Contact Number" class="form-control"  ng-model="customer.contactNo" type="text"  placeholder="Contact No"  id="tpNo" maxlength="10">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Credit Period</label>
+                                        <div class="col-md-8">
+                                            <input data-toggle="tooltip" title="Credit Period" ng-model="customer.creditPeriod" type="text" class="form-control" placeholder="Credit Period" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Date</label>
+                                        <div class="col-md-8">
+                                            <input data-toggle="tooltip" title="Customer Register Date" ng-model="customer.registeredDate" type="date" class="form-control" placeholder="Date" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><b>Sales Representative</b></label>
+
+                                        <div class="col-sm-8"><select data-toggle="tooltip" title="Sales Representative"
+                                                                      class="form-control" ng-model="customer.salesRepresentative"
+                                                                      ng-click="getSalesRepresentative()"
+                                                                      id="salesRepresentative">
+                                            <option value="">Select Sales Representative</option>
+                                            <option
+                                                    ng-repeat="data in allSalesRepresentative" value="{{data.userId}}">
+                                                {{data.name}} - {{data.town}}
+                                            </option>
+                                        </select></div>
+                                    </div>
+                                    <div  style="width: 100%">
+                                    <button style="float: right"  ng-click="saveCustomer()" title="Customer Save" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+<!--validate contact number-->
+<script>
+    $('#tpNo')
+
+            .keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                $phone = $(this);
+
+                // Allow numeric (and tab, backspace, delete) keys only
+                return (key == 8 ||
+                key == 9 ||
+                key == 46 ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+            })
+
+            .bind('focus click', function () {
+                $phone = $(this);
+
+
+                    var val = $phone.val();
+                    $phone.val('').val(val); // Ensure cursor remains at the end
+            })
+
+            .blur(function () {
+                $phone = $(this);
+
+                if ($phone.val() === '(') {
+                    $phone.val('');
+                }
+            });
+</script>
