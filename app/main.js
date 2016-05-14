@@ -29,6 +29,12 @@ module.config(function ($routeProvider) {
         })
         .when('/addUser', {
             templateUrl: 'app/view/user/add_user.html'
+        })
+        .when('/deliveryOrder', {
+            templateUrl: 'app/view/forms/DeliveryOrder.html'
+        })
+        .when('/region', {
+            templateUrl: 'app/view/region/Region.html'
         });
 });
 
