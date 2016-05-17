@@ -1,0 +1,171 @@
+<div id="page-wrapper" >
+    <div class="graphs">
+        <div class="xs">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Add New Order</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Payment Type</label>
+                                    <div class="col-md-8">
+                                        <select ng-click="onClickSelecterButton()">
+                                            <option value="1">Cash</option>
+                                            <option value="2">Credit</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Date</label>
+                                    <div class="col-md-8">
+                                        <input data-toggle="tooltip"
+                                               ng-model="order.date" type="text" class="form-control"
+                                               placeholder="Please get date">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Order Id</label>
+                                    <div class="col-md-8">
+                                        <input data-toggle="tooltip"
+                                               ng-model="customer.address" type="text" class="form-control"
+                                               placeholder="Order Id">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Order Date</label>
+                                    <div class="col-md-8">
+                                        <input data-toggle="tooltip"
+                                               ng-model="customer.address" type="date" class="form-control"
+                                               placeholder="Order Date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Customer Name</label>
+
+                                    <div class="col-sm-8">
+                                        <select
+                                                class="form-control" ng-model="customer.region"
+                                                ng-click="getRegions()"
+                                                id="region">
+                                            <option value="">Select Customer</option>
+                                            <option
+                                                    ng-repeat="data in allCustomer" > {{data.name}}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-success">
+
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Item Name</label>
+                                    <div class="col-md-8">
+                                        <input data-toggle="tooltip"
+                                               ng-model="customer.address" type="text" class="form-control"
+                                               placeholder="Item Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Available Qty</label>
+                                    <div class="col-md-8">
+                                        <lable data-toggle="tooltip"
+                                               type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Unit Price</label>
+                                    <div class="col-md-8">
+                                        <lable data-toggle="tooltip"
+                                               type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <button style="float: right"
+                                        type="button"
+                                        class="btn btn-primary waves-effect w-md waves-light m-b-5">
+                                    Add
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="horizontal-form">
+                                <div class="form-horizontal">
+                                    <table class="table table-striped" id="datatable-editable">
+                                        <thead>
+                                        <tr>
+                                            <th>Item Code</th>
+                                            <th>Description</th>
+                                            <th>Unit Price</th>
+                                            <th>Qty</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="customer in allCustomers" class="gradeX"
+                                            onClick="HighLightTR(this,'#c9cc99','cc3333')" ;>
+                                            <td>{{order.itemCode}}</td>
+                                            <td>{{order.des}}</td>
+                                            <td>{{order.uPrice}}</td>
+                                            <td>{{order.qty}}</td>
+                                            <td>{{order.amount}}</td>
+                                            <td>
+                                                <button ng-click="updateCustomer(data)" class="btn btn-primary btn-xs">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <button style="float: right"
+                                            type="button"
+                                            class="btn btn-primary waves-effect w-md waves-light m-b-5">
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
