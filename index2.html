@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="enexapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+
+    <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+
+    <title>Enex</title>
+
+    <link rel="stylesheet" href="assets/css/style3.css">
+    <script src="http://data.egreen.io/chanaka/xdomain.min.js" slave="http://localhost:8080/web/index.jsp"></script>
+
+</head>
+
+<body>
+
+<body>
+<div ng-controller="LoginController" class="login">
+    <div class="login-screen">
+        <div class="app-title">
+            <h1>Enex Login</h1>
+        </div>
+
+        <form>
+            <div class="login-form">
+                <div class="control-group">
+                    <input required="required" ng-model="user.userName" type="text" class="login-field"
+                           placeholder="username"
+                           id="userName">
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input required="required" ng-model="user.password" type="password" class="login-field"
+                           placeholder="password"
+                           id="password">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <button class="btn btn-primary btn-large btn-block" ng-click="onClickLoginBtn()" type="submit">login
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/angular/angular.min.js"></script>
+<script src="assets/js/angular/angular-route.min.js"></script>
+
+<script src="app/main.js"></script>
+<script src="app/urls.js"></script>
+
+<script src="app/controller/login_controller.js"></script>
+<script src="app/controller/home_controller.js"></script>
+
+<script src="app/controller/customer_controller.js"></script>
+<script src="app/service/customer_service.js"></script>
+
+<script src="app/controller/product_controller.js"></script>
+<script src="app/service/product_service.js"></script>
+
+<script src="app/service/region_service.js"></script>
+<script src="app/service/user_service.js"></script>
+</body>
+
+
+</body>
+</html>

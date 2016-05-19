@@ -20,6 +20,15 @@ module.factory('ProductService', function ($http, $rootScope) {
             }).then(function (response) {
                 return response.data;
             });
+        },
+        getAllProducts: function () {
+            return $http({
+                method: "GET",
+                headers: headers,
+                url: host2.product + "/getAll"
+            }).then(function (response) {
+                return response.data;
+            });
         }
     }
     return ProductService;

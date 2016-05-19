@@ -1,58 +1,122 @@
-<div ng-controller="UserController">
-    <div>
-        <div style="padding-right: 100px" class="form-horizontal">
-            <div class="form-group">
-                <label class="col-md-2 control-label">User Id</label>
-                <div class="col-md-10">
-                    <input ng-model="user.userId" type="text" class="form-control" >
+<div id="page-wrapper" ng-controller="UserController">
+    <div class="graphs">
+        <div class="xs">
+            <div class="panel panel-success formRightMargine">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Add new User</strong></h3>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">User Name</label>
-                <div class="col-md-10">
-                    <input ng-model="user.userName" type="text" class="form-control" placeholder="User Name">
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <form class="form-horizontal">
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Privilege</label>
+                                    <div class="col-md-10">
+                                        <select id="privilege" ng-model="user.privilege" class="form-control"
+                                                required="required">
+                                            <option value="">Select Privilege</option>
+                                            <option value="1">Admin</option>
+                                            <option value="2">Manager</option>
+                                            <option value="3">Factory Worker</option>
+                                            <option value="4">Stock Keeper</option>
+                                            <option value="5">Sales Representative</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Name</label>
+                                    <div class="col-md-10">
+                                        <input id="name" ng-model="user.name" required="required" type="text"
+                                               class="form-control"
+                                               placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Address</label>
+                                    <div class="col-md-10">
+                                        <input id="address" ng-model="user.address" required="required" type="text"
+                                               class="form-control"
+                                               placeholder="Address">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Contact No</label>
+                                    <div class="col-md-10">
+                                        <input id="contactNo" ng-model="user.contactNo" required="required" type="text"
+                                               class="form-control"
+                                               placeholder="Contact No">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">User Name</label>
+                                    <div class="col-md-10">
+                                        <input id="userName" ng-model="user.userName" required="required" type="text"
+                                               class="form-control"
+                                               placeholder="User Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Password</label>
+                                    <div id="password" class="col-md-10">
+                                        <input ng-model="user.password" required="required" type="password"
+                                               class="form-control"
+                                               placeholder="Password">
+                                    </div>
+                                </div>
+
+
+                                <div style="width: 100%">
+                                    <button style="float: right" ng-click="saveUser()" type="submit"
+                                            class="btn btn-primary waves-effect w-md waves-light m-b-5">Save
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Region</label>
-                <div class="col-md-10">
-                    <input ng-model="user.password" type="password" class="form-control" placeholder="Password">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Contact No</label>
-                <div class="col-md-10">
-                    <!--<input ng-model="user.privilege" type="text" class="form-control" placeholder="Qty On Hand">-->
-                    <select>
-                        <option value="Admin">Administrator</option>
-                        <option value="Admin & Manager">Admin & Manager</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Clerk">Clerk</option>
-                        <option value="Factory Worker">Factory Worker</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Name</label>
-                <div class="col-md-10">
-                    <input ng-model="user.name" type="text" class="form-control" placeholder="Name">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Name</label>
-                <div class="col-md-10">
-                    <input ng-model="user.address" type="text" class="form-control" placeholder="Address">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Name</label>
-                <div class="col-md-10">
-                    <input ng-model="user.contactNo" type="text" class="form-control" placeholder="Contact No">
-                </div>
-            </div>
-            <div  style="width: 100%">
-                <button style="float: right"  ng-click="saveProduct()" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Save</button>
             </div>
         </div>
     </div>
 </div>
+
+<!--validate contact number-->
+<script>
+    $('#contactNo')
+            .keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                $phone = $(this);
+
+                // Allow numeric (and tab, backspace, delete) keys only
+                return (key == 8 ||
+                key == 9 ||
+                key == 46 ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+            })
+
+            .bind('focus click', function () {
+                $phone = $(this);
+
+
+                var val = $phone.val();
+                $phone.val('').val(val); // Ensure cursor remains at the end
+            })
+
+            .blur(function () {
+                $phone = $(this);
+
+                if ($phone.val() === '(') {
+                    $phone.val('');
+                }
+            });
+</script>
