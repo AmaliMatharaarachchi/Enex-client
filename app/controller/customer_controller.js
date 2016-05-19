@@ -7,7 +7,23 @@ module.controller('CustomerController', CustomerController);
 function CustomerController($scope, $filter, $rootScope, CustomerService, RegionService, UserService) {
 
     $scope.customerDelete = {
+<<<<<<< HEAD
         "customerId": "",
+=======
+        "custId": "",
+        "registeredDate": "",
+        "address": "",
+        "name": "",
+        "creditPeriod": "",
+        "region": "",
+        "contactNo": "",
+        "salesRepresentative": "",
+        "nbt": "",
+        "vat": ""
+    };
+
+    $scope.customerUpdate = {
+>>>>>>> origin/master
         "custId": "",
         "registeredDate": "",
         "address": "",
@@ -144,6 +160,7 @@ function CustomerController($scope, $filter, $rootScope, CustomerService, Region
 
 
     $scope.deleteConfirmCustomer = function (customer) {
+<<<<<<< HEAD
         $scope.customerDelete = customer;
         $("#deleteConfirmDialog").modal("show");
 
@@ -152,12 +169,35 @@ function CustomerController($scope, $filter, $rootScope, CustomerService, Region
     $scope.showUpdateDialog = function (customer) {
         $scope.customer = customer;
         $("#updateDialog").modal("show");
+=======
+
+         // var customer = document.getElementById("deleteBtn").value;
+        var customer=customer;
+
+        console.log("CUSTOMER", customer);
+        $scope.customerDelete = customer;
+        $scope.customerDelete.custId = customer.custId;
+        $scope.customerDelete.registeredDate = customer.registeredDate;
+        $scope.customerDelete.address = customer.address;
+        $scope.customerDelete.name = customer.name;
+        $scope.customerDelete.creditPeriod = customer.creditPeriod;
+        $scope.customerDelete.region = customer.region;
+        $scope.customerDelete.contactNo = customer.contactNo;
+        $scope.customerDelete.salesRepresentative = customer.salesRepresentative;
+        $scope.customerDelete.nbt = customer.nbt;
+        $scope.customerDelete.vat = customer.vat;
+
+        console.log("DELETE CUSTOMER", $scope.customerDelete);
+
+        $("#deleteConfirmDialog").modal("show");
+>>>>>>> origin/master
 
     };
 
     $scope.deleteCustomer = function () {
 
         var custId = $scope.customerDelete.custId;
+<<<<<<< HEAD
         var type = custId.split("-")[0];
 
         console.log(type);
@@ -166,6 +206,17 @@ function CustomerController($scope, $filter, $rootScope, CustomerService, Region
         if (type == 'IC') {
             var customer = {
                 "customerId": $scope.customerDelete.customerId,
+=======
+        var type = custId.split("-");
+
+
+        console.log("DELETE sss", $scope.customerDelete);
+        console.log(custId);
+        console.log(type);
+        $("#deleteConfirmDialog").modal("hide");
+        if (type[0] == 'IC') {
+            var customer = {
+>>>>>>> origin/master
                 "custId": $scope.customerDelete.custId,
                 "registeredDate": $scope.customerDelete.registeredDate,
                 "address": $scope.customerDelete.address,
@@ -175,19 +226,33 @@ function CustomerController($scope, $filter, $rootScope, CustomerService, Region
                 "contactNo": $scope.customerDelete.contactNo,
                 "salesRepresentative": $scope.customerDelete.salesRepresentative
             }
+<<<<<<< HEAD
             CustomerService.deleteIndiCusomer(customer).then(function (data) {
                 if (data.text == "200") {
                     alert("Delete Successfully..");
                     getAllCustomers();
+=======
+            console.log("IC delete "+ customer)
+            CustomerService.deleteIndiCustomer(customer).then(function (data) {
+                if (data.text == "200") {
+                    alert("Delete Successfully..");
+>>>>>>> origin/master
                 } else {
                     alert("Deleting Fail..");
                 }
             });
+<<<<<<< HEAD
         } else {
             CustomerService.deleteCompanyCusomer($scope.customerDelete).then(function (data) {
                 if (data.text == "200") {
                     alert("Delete Successfully..");
                     $scope.getAllCustomers();
+=======
+        }else {
+            CustomerService.deleteCompCustomer($scope.customerDelete).then(function (data) {
+                if (data.text == "200") {
+                    alert("Delete Successfully..");
+>>>>>>> origin/master
                 } else {
                     alert("Deleting Fail..");
                 }
@@ -197,6 +262,7 @@ function CustomerController($scope, $filter, $rootScope, CustomerService, Region
 
     };
 
+<<<<<<< HEAD
     $scope.updateCusomer = function (customer) {
 
 
@@ -210,6 +276,98 @@ function CustomerController($scope, $filter, $rootScope, CustomerService, Region
         //         alert("Deleting Fail..");
         //     }
         // });
+=======
+
+    $scope.showUpdateDialog = function (customer) {
+        $scope.customer = customer;
+        var custId=$scope.customer.custId;
+        var type = custId.split("-");
+
+        // console.log("CUSTOMER" , customer);
+        // $scope.customerUpdate = customer;
+        // $scope.customerUpdate.custId = customer.custId;
+        // $scope.customerUpdate.registeredDate = customer.registeredDate;
+        // $scope.customerUpdate.address = customer.address;
+        // $scope.customerUpdate.name = customer.name;
+        // $scope.customerUpdate.creditPeriod = customer.creditPeriod;
+        // $scope.customerUpdate.region = customer.region;
+        // $scope.customerUpdate.contactNo = customer.contactNo;
+        // $scope.customerUpdate.salesRepresentative = customer.salesRepresentative;
+        // $scope.customerUpdate.nbt = customer.nbt;
+        // $scope.customerUpdate.vat = customer.vat;
+        //
+        // console.log("Update CUSTOMER", $scope.customerUpdate);
+
+        $("#updateDialog").modal("show");
+        if (type[0] == 'IC') {
+            $scope.companyCustomerHide = true;
+        } else {
+            $scope.companyCustomerHide = false;
+        }
+
+
+    };
+
+
+    $scope.updateCustomer = function (customer) {
+
+
+        // $scope.notification("warning", "Not Envelope Added on this day...");
+
+        $scope.customer = customer;
+        var custId = $scope.customer.custId;
+        var tk8ype = custId.split("-");
+        
+
+        console.log("Update sss", $scope.customer);
+        console.log(custId);
+        console.log(type);
+        var name = $scope.customer.name;
+        var address = $scope.customer.address;
+        var creditPeriod = $scope.customer.creditPeriod;
+        var region = $scope.customer.region;
+        var contactNo = $scope.customer.contactNo;
+        var salesRepresentative = $scope.customer.salesRepresentative;
+        var nbt =$scope.customer.nbt;
+        var vat = $scope.customer.vat;
+
+        if (type[0] == 'IC') {
+            if (name != '' && address != '' && registeredDate != '' && creditPeriod != '' && region != '' && contactNo != ''
+                && salesRepresentative != '') {
+                var customer = {
+                    "registeredDate": $scope.customer.registeredDate,
+                    "address": $scope.customer.address,
+                    "name": $scope.customer.name,
+                    "creditPeriod": $scope.customer.creditPeriod,
+                    "region": $scope.customer.region,
+                    "contactNo": $scope.customer.contactNo,
+                    "salesRepresentative": $scope.customer.salesRepresentative
+                }
+
+
+                CustomerService.updateIndiCustomer($scope.customer).then(function (data) {
+                    if (data.text == "200") {
+                        alert("Update Successfully..");
+                    } else {
+                        alert("Updating Fail..");
+                    }
+                });
+            }
+        }else {
+            if (name != '' && address != '' && registeredDate != '' && creditPeriod != '' && region != '' && contactNo != ''
+                && salesRepresentative != '' && nbt != '' && vat != '') {
+                CustomerService.updateCompCustomer($scope.customer).then(function (data) {
+                    if (data.text == "200") {
+                        alert("Update Successfully..");
+                    } else {
+                        alert("Updating Fail..");
+                    }
+                });
+            }
+
+        }
+        $("#updateDialog").modal("hide");
+>>>>>>> origin/master
     };
 
     $scope.getRegions = function () {

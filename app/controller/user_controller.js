@@ -27,11 +27,20 @@ function UserController($scope, UserService) {
     };
 
 
+<<<<<<< HEAD
     // $scope.getAllCustomers = function () {
     //     IndividualCustomerService.getAllCustomers().then(function (data) {
     //         console.log(data);
     //         $allCustomers = data;
     //     });
     // };
+=======
+    $scope.getAllCustomers = function () {
+        IndividualCustomerService.getAllCustomers().then(function (data) {
+            console.log(data);
+            $allCustomers = data;
+        });
+    };
+>>>>>>> origin/master
 
 };

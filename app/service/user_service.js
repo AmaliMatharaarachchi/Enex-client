@@ -5,6 +5,7 @@
 module.factory('UserService', function ($http, $rootScope) {
 
     var UserService = {
+<<<<<<< HEAD
         login: function (user) {
             return $http({
                 method: "POST",
@@ -24,6 +25,14 @@ module.factory('UserService', function ($http, $rootScope) {
                 return response.data;
             });
         },
+=======
+        /**
+         * Get all roles from server
+         *
+         * @returns {*}
+         */
+
+>>>>>>> origin/master
         saveUser: function (data) {
             return $http({
                 method: "POST",
@@ -34,7 +43,11 @@ module.factory('UserService', function ($http, $rootScope) {
                 return response.data;
             });
         },
+<<<<<<< HEAD
         getAllSalesRepresentative: function (data) {
+=======
+        getAllSalesRepresentative:function (data) {
+>>>>>>> origin/master
             return $http({
                 method: "GET",
                 headers: headers,

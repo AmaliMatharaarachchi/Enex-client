@@ -5,6 +5,7 @@
  */
 module.controller('LoginController', LoginController);
 
+<<<<<<< HEAD
 function LoginController($scope, $location, $rootScope, UserService) {
 
     $scope.onClickLoginBtn = function () {
@@ -24,5 +25,18 @@ function LoginController($scope, $location, $rootScope, UserService) {
         } 
     };
 
+=======
+function LoginController($scope, $location, $rootScope) {
+
+    $scope.onClickLoginBtn = function () {
+
+        var userName = document.getElementById("username").value;
+
+        console.log("sfasf l;",userName);
+
+        location.replace("home.html#/?userName=" + userName);
+        // $location.path("/home");
+    };
+>>>>>>> origin/master
 };
 
