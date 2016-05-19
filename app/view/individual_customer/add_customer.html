@@ -1,0 +1,167 @@
+<div onload="setDate()" id="page-wrapper" ng-controller="CustomerController">
+    <div class="graphs">
+        <div class="xs">
+            <div class="panel panel-success formRightMargine">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Add new customer</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <form form="myForm" class="form-horizontal">
+
+                                <div ng-init="changeCustType()"
+                                     style="margin-bottom: 20px;background-color: lavender ;padding-bottom: 10px;padding-top: 10px"
+                                     class="form-group">
+                                    <label class="col-sm-2 control-label"><b>Customer Type</b></label>
+
+                                    <div class="col-sm-8">
+                                        <select ng-click="changeCustType()" required="required"
+                                                class="form-control"
+                                                id="custType">
+                                            <option value="1">Individual Customer</option>
+                                            <option value="2">Company Customer</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Name</label>
+                                    <div class="col-md-8">
+                                        <input id="name" required="required"
+                                               ng-model="customer.name" type="text" class="form-control "
+                                               placeholder="Customer Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Adderss</label>
+                                    <div class="col-md-8">
+                                        <input id="address" required="required"
+                                               ng-model="customer.address" type="text" class="form-control"
+                                               placeholder="Address">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><b>Region</b></label>
+
+                                    <div ng-init="getRegions()" class="col-sm-8">
+                                        <select required="required"
+                                                class="form-control" ng-model="customer.region"
+                                                id="region">
+                                            <option value="">Select Region</option>
+                                            <option
+                                                    ng-repeat="data in allRegions" value="{{data.regId}}">
+                                                {{data.regId}} - {{data.name}}
+                                            </option>
+                                        </select></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Contact No</label>
+                                    <div class="col-md-8">
+                                        <input id="contactNo" required="required"
+                                               class="form-control" ng-model="customer.contactNo" type="text"
+                                               placeholder="Contact No" maxlength="10">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Credit Period</label>
+                                    <div class="col-md-8">
+                                        <input id="creditPeriod" required="required" autocomplete="false"
+                                               ng-model="customer.creditPeriod" type="text"
+                                               class="form-control" placeholder="Credit Period">
+                                    </div>
+                                </div>
+                                <div ng-init="setCurrentDate()" class="form-group">
+                                    <label class="col-md-2 control-label">Date</label>
+                                    <div class="col-md-8">
+                                        <input id="registeredDate" required="required"
+                                               ng-model="customer.registeredDate" type="text" class="form-control"
+                                               placeholder="YYYY-MM-DD" disabled="disabled">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><b>Sales Representative</b></label>
+
+                                    <div ng-init="getAllSalesRepresentative()" class="col-sm-8">
+                                        <select required="required"
+                                                class="form-control"
+                                                ng-model="customer.salesRepresentative"
+                                                id="salesRepresentative">
+                                            <option value="">Select Sales Representative</option>
+                                            <option ng-repeat="data in allSalesRep" value="{{data.userId}}">
+                                                {{data.userId}} - {{data.name}}
+                                            </option>
+                                        </select></div>
+                                </div>
+                                <div ng-hide="companyCustomerHide">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">NBT</label>
+                                        <div class="col-md-8">
+                                            <input id="nbt" required="required"
+                                                   ng-model="customer.nbt" type="text" class="form-control"
+                                                   placeholder="NBT">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">VAT</label>
+                                        <div class="col-md-8">
+                                            <input id="vat" required="required"
+                                                   ng-model="customer.vat" type="text" class="form-control"
+                                                   placeholder="VAT">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                    <div class="col-sm-8">
+                                        <button style="float: right" ng-click="saveCustomer()" title="Customer Save"
+                                                type="submit"
+                                                class=" btn btn-primary waves-effect w-md waves-light m-b-5"> Save
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--validate contact number-->
+<script>
+    $('#contactNo')
+            .keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                $phone = $(this);
+
+                // Allow numeric (and tab, backspace, delete) keys only
+                return (key == 8 ||
+                key == 9 ||
+                key == 46 ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+            })
+
+            .bind('focus click', function () {
+                $phone = $(this);
+
+
+                var val = $phone.val();
+                $phone.val('').val(val); // Ensure cursor remains at the end
+            })
+
+            .blur(function () {
+                $phone = $(this);
+
+                if ($phone.val() === '(') {
+                    $phone.val('');
+                }
+            });
+</script>

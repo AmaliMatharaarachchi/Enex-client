@@ -1,5 +1,5 @@
 /**
- * Created by Himashi Nethinika on 5/13/2016.
+ * Created by Himashi Nethinika on 5/18/2016.
  */
 
 module.factory('ProductService', function ($http, $rootScope) {
@@ -10,7 +10,6 @@ module.factory('ProductService', function ($http, $rootScope) {
          *
          * @returns {*}
          */
-
         saveProduct: function (data) {
             return $http({
                 method: "POST",
