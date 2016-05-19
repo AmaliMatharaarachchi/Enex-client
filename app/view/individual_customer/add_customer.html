@@ -69,11 +69,7 @@
                                     <div class="col-md-8">
                                         <input id="creditPeriod" required="required" autocomplete="false"
                                                ng-model="customer.creditPeriod" type="text"
-<<<<<<< HEAD
                                                class="form-control" placeholder="Credit Period">
-=======
-                                               class="form-control" placeholder="Credit Period" maxlength="2">
->>>>>>> origin/master
                                     </div>
                                 </div>
                                 <div ng-init="setCurrentDate()" class="form-group">
@@ -94,11 +90,7 @@
                                                 id="salesRepresentative">
                                             <option value="">Select Sales Representative</option>
                                             <option ng-repeat="data in allSalesRep" value="{{data.userId}}">
-<<<<<<< HEAD
-                                                {{data.name}}
-=======
                                                 {{data.userId}} - {{data.name}}
->>>>>>> origin/master
                                             </option>
                                         </select></div>
                                 </div>
@@ -164,7 +156,6 @@
                 var val = $phone.val();
                 $phone.val('').val(val); // Ensure cursor remains at the end
             })
-<<<<<<< HEAD
 
             .blur(function () {
                 $phone = $(this);
@@ -174,31 +165,3 @@
                 }
             });
 </script>
-=======
-</script>
-<!--validate credit period-->
-<script>
-    $('#creditPeriod')
-            .keydown(function (e) {
-                var key = e.charCode || e.keyCode || 0;
-                $credit = $(this);
-
-                // Allow numeric (and tab, backspace, delete) keys only
-                return (key == 8 ||
-                key == 9 ||
-                key == 46 ||
-                (key >= 48 && key <= 57) ||
-                (key >= 96 && key <= 105));
-            })
-
-            .bind('focus click', function () {
-                $credit = $(this);
-
-
-                var val = $credit.val();
-                $credit.val('').val(val); // Ensure cursor remains at the end
-            })
-</script>
-
-
->>>>>>> origin/master

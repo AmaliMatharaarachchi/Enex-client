@@ -1,5 +1,5 @@
 /**
- * Created by Amali Lakshika on 5/18/2016.
+ * Created by Himashi Nethinika on 5/18/2016.
  */
 
 module.factory('ProductService', function ($http, $rootScope) {

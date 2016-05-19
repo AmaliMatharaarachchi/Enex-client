@@ -1,39 +1,87 @@
-<div ng-controller="ProductController">
-    <div>
-        <div style="padding-right: 100px" class="form-horizontal">
-            <div class="form-group">
-                <label class="col-md-2 control-label">Product Id</label>
-                <div class="col-md-10">
-                    <input ng-model="product.pId" type="text" class="form-control" >
+<div id="page-wrapper" ng-controller="ProductController">
+    <div class="graphs">
+        <div class="xs">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Add Product</strong></h3>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Description</label>
-                <div class="col-md-10">
-                    <input ng-model="product.description" type="text" class="form-control" placeholder="Description">
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <form class="form-horizontal">
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Description</label>
+                                    <div class="col-md-10">
+                                        <input id="description" ng-model="product.description" required="required"
+                                               type="text" class="form-control"
+                                               placeholder="Description">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Selling Price</label>
+                                    <div class="col-md-10">
+                                        <input  id="sellingPrice" ng-model="product.sellingPrice" required="required"
+                                               type="text" class="form-control"
+                                               placeholder="Selling Price" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">QTY On Hand</label>
+                                    <div class="col-md-10">
+                                        <input id="qtyOnHand" ng-model="product.qtyOnHand" required="required"
+                                               type="text" class="form-control"
+                                               placeholder="Qty On Hand" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Re-Order Level</label>
+                                    <div class="col-md-10">
+                                        <input id="reOrderLevel" ng-model="product.reOrderLevel" required="required"
+                                               type="text" class="form-control"
+                                               placeholder="Reorder Level" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
+                                    </div>
+                                </div>
+                                <div style="width: 100%">
+                                    <button style="float: right" ng-click="saveProduct()" type="submit"
+                                            class="btn btn-primary waves-effect w-md waves-light m-b-5">Save
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Region</label>
-                <div class="col-md-10">
-                    <input ng-model="product.sellingPrice" type="text" class="form-control" placeholder="Selling Price">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Contact No</label>
-                <div class="col-md-10">
-                    <input ng-model="product.qtyOnHand" type="text" class="form-control" placeholder="Qty On Hand">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Credit Period</label>
-                <div class="col-md-10">
-                    <input ng-model="product.reOrderLevel" type="text" class="form-control" placeholder="Reorder Level">
-                </div>
-            </div>
-            <div  style="width: 100%">
-                <button style="float: right"  ng-click="saveProduct()" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Save</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+<script>
+    $('#tpNo')
+            .keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+
+                // Allow numeric (and tab, backspace, delete) keys only
+                return (key == 8 ||
+                key == 9 ||
+                key == 46 ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+            });
+
+
+</script>

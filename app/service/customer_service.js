@@ -21,19 +21,6 @@ module.factory('CustomerService', function ($http, $rootScope) {
                 return response.data;
             });
         },
-<<<<<<< HEAD
-=======
-        updateIndiCustomer: function (data) {
-            return $http({
-                method: "POST",
-                headers: headers,
-                data: data,
-                url: host2.individualCustomer + "/update"
-            }).then(function (response) {
-                return response.data;
-            });
-        },
->>>>>>> origin/master
         saveCompCustomer: function (data) {
             return $http({
                 method: "POST",
@@ -44,19 +31,6 @@ module.factory('CustomerService', function ($http, $rootScope) {
                 return response.data;
             });
         },
-<<<<<<< HEAD
-=======
-        updateCompCustomer: function (data) {
-            return $http({
-                method: "POST",
-                headers: headers,
-                data: data,
-                url: host2.companyCustomer + "/update"
-            }).then(function (response) {
-                return response.data;
-            });
-        },
->>>>>>> origin/master
         getAllCustomers: function (data) {
             return $http({
                 method: "GET",
@@ -91,39 +65,17 @@ module.factory('CustomerService', function ($http, $rootScope) {
             return $http({
                 method: "GET",
                 headers: headers,
-<<<<<<< HEAD
-                url: host2.individualCustomer + "/getCustomerByName?name=" + tag
-=======
                 url: host2.individualCustomer + "/getCustomerByName?name="+tag
->>>>>>> origin/master
             }).then(function (response) {
                 return response.data;
             });
         },
-<<<<<<< HEAD
         deleteIndiCusomer: function (data) {
-=======
-        deleteIndiCustomer: function (data) {
->>>>>>> origin/master
             return $http({
                 method: "POST",
                 headers: headers,
                 data: data,
                 url: host2.individualCustomer + "/delete"
-            }).then(function (response) {
-                return response.data;
-            });
-        },
-<<<<<<< HEAD
-        deleteCompanyCusomer: function (data) {
-=======
-        deleteCompCustomer: function (data) {
->>>>>>> origin/master
-            return $http({
-                method: "POST",
-                headers: headers,
-                data: data,
-                url: host2.companyCustomer + "/delete"
             }).then(function (response) {
                 return response.data;
             });
