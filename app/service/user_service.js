@@ -2,35 +2,34 @@
  * Created by Himashi Nethinika 5/08/2016.
  */
 
-module.factory('IndividualCustomerService', function ($http, $rootScope) {
+module.factory('UserService', function ($http, $rootScope) {
 
-    var IndividualCustomerService = {
+    var UserService = {
         /**
          * Get all roles from server
          *
          * @returns {*}
          */
 
-        saveCustomer: function (data) {
+        saveUser: function (data) {
             return $http({
                 method: "POST",
                 headers: headers,
                 data: data,
-                url: host2.individualCustomer + "/save"
+                url: host2.user + "/save"
             }).then(function (response) {
                 return response.data;
             });
         },
-        getAllCustomers:function (data) {
+        getAllSalesRepresentative:function (data) {
             return $http({
                 method: "GET",
                 headers: headers,
-                data: data,
-                url: host2.individualCustomer + "/getAll"
+                url: host2.user + "/getAll"
             }).then(function (response) {
                 return response.data;
             });
         }
     }
-        return IndividualCustomerService;
+    return UserService;
 });

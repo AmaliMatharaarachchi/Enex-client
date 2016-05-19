@@ -1,0 +1,51 @@
+<div id="page-wrapper" ng-controller="RegionController">
+    <div class="graphs">
+        <div class="xs">
+            <div class="panel panel-success formRightMargine">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Add New Region</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <form class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Name</label>
+                                    <div class="col-md-8">
+                                        <input id="regName" ng-model="region.name" required="required" type="text"
+                                               class="form-control"
+                                               placeholder="Region Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                    <div class="col-sm-8">
+                                        <button style="float: right" ng-click="saveRegion()" type="submit"
+                                                class="btn btn-primary waves-effect w-md waves-light m-b-5">Save
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

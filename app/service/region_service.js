@@ -1,35 +1,35 @@
 /**
- * Created by Himashi Nethinika on 5/13/2016.
+ * Created by Himashi Nethinika 5/08/2016.
  */
 
-module.factory('ProductService', function ($http, $rootScope) {
+module.factory('RegionService', function ($http, $rootScope) {
 
-    var ProductService = {
+    var RegionService = {
         /**
          * Get all roles from server
          *
          * @returns {*}
          */
 
-        saveProduct: function (data) {
+        saveRegion: function (data) {
             return $http({
                 method: "POST",
                 headers: headers,
                 data: data,
-                url: host2.product + "/save"
+                url: host2.region + "/save"
             }).then(function (response) {
                 return response.data;
             });
         },
-        getAllProducts: function () {
+        getAllRegions: function (data) {
             return $http({
                 method: "GET",
                 headers: headers,
-                url: host2.product + "/getAll"
+                url: host2.region + "/getAll"
             }).then(function (response) {
                 return response.data;
             });
         }
     }
-    return ProductService;
+    return RegionService;
 });

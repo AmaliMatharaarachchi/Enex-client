@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="enexapp">
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+
+    <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+
+    <title>Enex</title>
+
+    <link href="assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet"/>
+    <link href="assets/plugins/jquery-circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css"/>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/pages.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <!--<link href="assets/css/ionic.css" rel="stylesheet" type="text/css">-->
+
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="http://data.egreen.io/chanaka/xdomain.min.js" slave="http://localhost:8080/web/index.jsp"></script>
+
+</head>
+<body class="fixed-left " ng-controller="LoginController">
+<div class="login-page">
+    <div class="form">
+        <form class="register-form">
+            <input type="text" placeholder="name"/>
+            <input type="password" placeholder="password"/>
+            <input type="text" placeholder="email address"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form">
+            <input type="text" placeholder="username"/>
+            <input type="password" placeholder="password"/>
+            <button ng-click="onClickLoginBtn()">login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>
+</div>
+
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/angular/angular.min.js"></script>
+<script src="assets/js/angular/angular-route.min.js"></script>
+
+<script src="app/main.js"></script>
+<script src="app/urls.js"></script>
+
+<script src="app/controller/login_controller.js"></script>
+
+<script src="app/controller/customer_controller.js"></script>
+<script src="app/service/customer_service.js"></script>
+
+<script src="app/controller/product_controller.js"></script>
+<script src="app/service/product_service.js"></script>
+
+<script src="app/service/region_service.js"></script>
+<script src="app/service/user_service.js"></script>
+
+
+</body>
+</html>
