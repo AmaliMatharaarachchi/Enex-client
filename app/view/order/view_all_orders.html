@@ -1,0 +1,114 @@
+<div ng-controller="ProductController" class="panel">
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title"><strong>Products</strong></h3>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane active" id="horizontal-form">
+                    <form class="form-horizontal">
+
+                        <div ng-init="getAllOrders()" class="">
+
+                            <div class="panel-body">
+                                <table class="table table-striped" id="datatable-editable">
+                                    <thead>
+                                    <tr>
+                                        <th>Order Id</th>
+                                        <th>Customer Id</th>
+                                        <th>Issue Date</th>
+                                        <th>Validity</th>
+                                        <th>Amount</th>
+                                        <th>More</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="order in allOrders" class="gradeX">
+                                        <td>{{order.orderId}}</td>
+                                        <td>{{order.customerId}}</td>
+                                        <td>{{order.issueDate}}</td>
+                                        <td>{{order.validity}}</td>
+                                        <td>{{order.amount}}</td>
+                                        <td>
+                                            <button ng-click="viewOrderDetails(order)"><i
+                                                    class="fa fa-pencil"></i>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /. update modal -->
+    <div id="orderDetailDialog" class="modal modal-open" role="dialog" data-size="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+
+                <div class="panel panel-success ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>View Order Details</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="detail-horizontal-form">
+                                <form class="form-horizontal">
+
+                                    <div ng-init="getAllOrderDetails()" class="">
+
+                                        <div class="panel-body">
+                                            <table class="table table-striped" id="order-datatable-editable">
+                                                <thead>
+                                                <tr>
+                                                    <th>ProductId</th>
+                                                    <th>Description</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Amount</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr ng-repeat="orderDetails in allOrderDetails" class="gradeX">
+                                                    <td>{{orderDetail.productId}}</td>
+                                                    <td>{{orderDetail.description}}</td>
+                                                    <td>{{orderDetail.unitPrice}}</td>
+                                                    <td>{{orderDetail.quantity}}</td>
+                                                    <td>{{orderDetail.amount}}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-offset-9">
+                        <button id="yesBtnOfFinish" data-toggle="tooltip"
+                                class="btn btn-info btn-sm" >OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.update modal -->
+
+
+</div>
+

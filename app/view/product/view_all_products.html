@@ -1,0 +1,51 @@
+<div ng-controller="ProductController" class="panel">
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title"><strong>Products</strong></h3>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane active" id="horizontal-form">
+                    <form class="form-horizontal">
+
+                        <div ng-init="getAllProducts()" class="">
+
+                            <div class="panel-body">
+                                <table class="table table-striped" id="datatable-editable">
+                                    <thead>
+                                    <tr>
+                                        <th>ProductId</th>
+                                        <th>Description</th>
+                                        <th>Selling Price</th>
+                                        <th>Qty On Hand</th>
+                                        <th>Re-order Level</th>
+                                        <th>More</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="product in allProducts" class="gradeX">
+                                        <td>{{product.pId}}</td>
+                                        <td>{{product.description}}</td>
+                                        <td>{{product.sellingPrice}}</td>
+                                        <td>{{product.qtyOnHand}}</td>
+                                        <td>{{product.reOrderLevel}}</td>
+                                        <td>
+                                            <button ng-click="updateCusomer(customer)"><i
+                                                    class="fa fa-pencil"></i>
+                                            </button>
+                                            <button ng-click="daleteConfirmCustomer()"><i
+                                                    class="fa fa-trash-o"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

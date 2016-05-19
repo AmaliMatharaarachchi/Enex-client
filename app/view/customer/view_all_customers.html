@@ -1,5 +1,5 @@
 <div ng-controller="CustomerController">
-    <div id="page-wrapper">
+    <div id="page-wrapper" >
 
         <div class="graphs">
             <div class="xs">
@@ -125,7 +125,7 @@
 
     <!-- /. update modal -->
     <div id="updateDialog" class="modal modal-open" role="dialog" data-size="modal">
-        <div ng-init="changeCustType()" class="modal-dialog">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -189,7 +189,7 @@
                                             <input id="creditPeriod" required="required" autocomplete="false"
                                                    data-toggle="tooltip"
                                                    title="Credit Period" ng-model="customer.creditPeriod" type="text"
-                                                   class="form-control" placeholder="Credit Period">
+                                                   class="form-control" placeholder="Credit Period" maxlength="2">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -197,9 +197,8 @@
                                         <div class="col-md-8">
                                             <input id="registeredDate" required="required" data-toggle="tooltip"
                                                    title="Customer Register Date"
-                                                   ng-model="customer.registeredDate" type="text" disabled="disabled"
-                                                   class="form-control"
-                                                   placeholder="Date">
+                                                   ng-model="customer.registeredDate" type="text" placeholder="YYYY-MM-DD" class="form-control"
+                                                   placeholder="Date" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -219,7 +218,7 @@
                                     </div>
                                     <div ng-hide="companyCustomerHide">
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">NBT</label>
+                                            <label class="col-md-2 control-label">NBT</label>
                                             <div class="col-md-8">
                                                 <input id="nbt" required="required" data-toggle="tooltip"
                                                        title="NBT"
@@ -228,7 +227,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">VAT</label>
+                                            <label class="col-md-2 control-label">VAT</label>
                                             <div class="col-md-8">
                                                 <input id="vat" required="required" data-toggle="tooltip"
                                                        title="VAT"
@@ -247,7 +246,7 @@
                 <div class="modal-footer">
                     <div class="col-md-offset-9">
                         <button id="yesBtnOfFinish" data-toggle="tooltip"
-                                class="btn btn-info btn-sm" ng-click="daleteCustomer(customer)">Save
+                                class="btn btn-info btn-sm" ng-click="updateCustomer(customer)">Update
                         </button>
                     </div>
                 </div>
@@ -256,6 +255,56 @@
     </div>
     <!-- /.update modal -->
 </div>
+
+
+<!--validate contact number-->
+<script>
+    $('#contactNo')
+            .keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                $phone = $(this);
+
+                // Allow numeric (and tab, backspace, delete) keys only
+                return (key == 8 ||
+                key == 9 ||
+                key == 46 ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+            })
+
+            .bind('focus click', function () {
+                $phone = $(this);
+
+
+                var val = $phone.val();
+                $phone.val('').val(val); // Ensure cursor remains at the end
+            })
+</script>
+<!--validate credit period-->
+<script>
+    $('#creditPeriod')
+            .keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                $credit = $(this);
+
+                // Allow numeric (and tab, backspace, delete) keys only
+                return (key == 8 ||
+                key == 9 ||
+                key == 46 ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+            })
+
+            .bind('focus click', function () {
+                $credit = $(this);
+
+
+                var val = $credit.val();
+                $credit.val('').val(val); // Ensure cursor remains at the end
+            })
+</script>
+
+
 
 <script type="text/javascript">
     <!--

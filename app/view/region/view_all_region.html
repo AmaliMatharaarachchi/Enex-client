@@ -1,0 +1,44 @@
+<div ng-controller="RegionController" class="panel">
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title"><strong>Regions</strong></h3>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane active" id="horizontal-form">
+                    <form class="form-horizontal">
+
+                        <div ng-init="getAllRegions()" class="">
+
+                            <div class="panel-body">
+                                <table class="table table-striped" id="datatable-editable">
+                                    <thead>
+                                    <tr>
+                                        <th>Reg Id</th>
+                                        <th>Name</th>
+                                        <th>More</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="region in allRegions" class="gradeX">
+                                        <td>{{region.regId}}</td>
+                                        <td>{{region.name}}</td>
+                                        <td>
+                                            <button ng-click="updateCusomer(customer)"><i
+                                                    class="fa fa-pencil"></i>
+                                            </button>
+                                            <button ng-click="daleteConfirmCustomer()"><i
+                                                    class="fa fa-trash-o"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
